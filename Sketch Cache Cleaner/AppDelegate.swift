@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  Sketch Cache Cleaner
 //
-//  Created by Sasha Minikin on 2/6/17.
+//  Created by Sasha Prokhorenko on 2/6/17.
 //  Copyright © 2017 Sasha Prokhorenko. All rights reserved.
 //
 

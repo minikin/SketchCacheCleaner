@@ -11,15 +11,25 @@
 		CE25F7D91E490FA00049CF23 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE25F7D81E490FA00049CF23 /* ViewController.swift */; };
 		CE25F7DB1E490FA00049CF23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE25F7DA1E490FA00049CF23 /* Assets.xcassets */; };
 		CE25F7DE1E490FA00049CF23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE25F7DC1E490FA00049CF23 /* Main.storyboard */; };
+		CE25F7EB1E4914340049CF23 /* calculate_cache_size.sh in Resources */ = {isa = PBXBuildFile; fileRef = CE25F7EA1E4914340049CF23 /* calculate_cache_size.sh */; };
+		CE25F7ED1E49145A0049CF23 /* clear_cache.sh in Resources */ = {isa = PBXBuildFile; fileRef = CE25F7EC1E49145A0049CF23 /* clear_cache.sh */; };
+		CE25F7F21E4915190049CF23 /* STPrivilegedTask.m in Sources */ = {isa = PBXBuildFile; fileRef = CE25F7F01E4915190049CF23 /* STPrivilegedTask.m */; };
+		CE25F7F41E491BE30049CF23 /* stop_cache.sh in Resources */ = {isa = PBXBuildFile; fileRef = CE25F7F31E491BE30049CF23 /* stop_cache.sh */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		CE25F7D31E490FA00049CF23 /* Sketch Cache Cleaner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sketch Cache Cleaner.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		CE25F7D61E490FA00049CF23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../AppDelegate.swift; sourceTree = "<group>"; };
+		CE25F7D61E490FA00049CF23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE25F7D81E490FA00049CF23 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ../ViewController.swift; sourceTree = "<group>"; };
 		CE25F7DA1E490FA00049CF23 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE25F7DD1E490FA00049CF23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		CE25F7DF1E490FA00049CF23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
+		CE25F7DF1E490FA00049CF23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE25F7EA1E4914340049CF23 /* calculate_cache_size.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = calculate_cache_size.sh; sourceTree = "<group>"; };
+		CE25F7EC1E49145A0049CF23 /* clear_cache.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = clear_cache.sh; sourceTree = "<group>"; };
+		CE25F7EF1E4915190049CF23 /* Sketch Cache Cleaner-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Sketch Cache Cleaner-Bridging-Header.h"; sourceTree = "<group>"; };
+		CE25F7F01E4915190049CF23 /* STPrivilegedTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STPrivilegedTask.m; sourceTree = "<group>"; };
+		CE25F7F11E4915190049CF23 /* STPrivilegedTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STPrivilegedTask.h; sourceTree = "<group>"; };
+		CE25F7F31E491BE30049CF23 /* stop_cache.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = stop_cache.sh; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,7 +64,9 @@
 			children = (
 				CE25F7DA1E490FA00049CF23 /* Assets.xcassets */,
 				CE25F7E51E490FBA0049CF23 /* Controllers */,
+				CE25F7E91E4913EE0049CF23 /* Scripts */,
 				CE25F7E61E490FCA0049CF23 /* Storybords & Xibs */,
+				CE25F7EE1E4914930049CF23 /* Supporting Files */,
 				CE25F7E71E490FDB0049CF23 /* Utils */,
 				CE25F7E81E490FE90049CF23 /* Views */,
 			);
@@ -80,8 +92,9 @@
 		CE25F7E71E490FDB0049CF23 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				CE25F7D61E490FA00049CF23 /* AppDelegate.swift */,
-				CE25F7DF1E490FA00049CF23 /* Info.plist */,
+				CE25F7F01E4915190049CF23 /* STPrivilegedTask.m */,
+				CE25F7F11E4915190049CF23 /* STPrivilegedTask.h */,
+				CE25F7EF1E4915190049CF23 /* Sketch Cache Cleaner-Bridging-Header.h */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -91,6 +104,25 @@
 			children = (
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		CE25F7E91E4913EE0049CF23 /* Scripts */ = {
+			isa = PBXGroup;
+			children = (
+				CE25F7EA1E4914340049CF23 /* calculate_cache_size.sh */,
+				CE25F7EC1E49145A0049CF23 /* clear_cache.sh */,
+				CE25F7F31E491BE30049CF23 /* stop_cache.sh */,
+			);
+			path = Scripts;
+			sourceTree = "<group>";
+		};
+		CE25F7EE1E4914930049CF23 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CE25F7DF1E490FA00049CF23 /* Info.plist */,
+				CE25F7D61E490FA00049CF23 /* AppDelegate.swift */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,6 +158,7 @@
 					CE25F7D21E490FA00049CF23 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = GW82A8W73Z;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -154,6 +187,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE25F7DB1E490FA00049CF23 /* Assets.xcassets in Resources */,
+				CE25F7ED1E49145A0049CF23 /* clear_cache.sh in Resources */,
+				CE25F7EB1E4914340049CF23 /* calculate_cache_size.sh in Resources */,
+				CE25F7F41E491BE30049CF23 /* stop_cache.sh in Resources */,
 				CE25F7DE1E490FA00049CF23 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -167,6 +203,7 @@
 			files = (
 				CE25F7D91E490FA00049CF23 /* ViewController.swift in Sources */,
 				CE25F7D71E490FA00049CF23 /* AppDelegate.swift in Sources */,
+				CE25F7F21E4915190049CF23 /* STPrivilegedTask.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,6 +316,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = GW82A8W73Z;
 				INFOPLIST_FILE = "Sketch Cache Cleaner/Info.plist";
@@ -286,6 +324,8 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = "me.minikin.Sketch-Cache-Cleaner";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Sketch Cache Cleaner/Utils/Sketch Cache Cleaner-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -294,6 +334,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = GW82A8W73Z;
 				INFOPLIST_FILE = "Sketch Cache Cleaner/Info.plist";
@@ -301,6 +342,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = "me.minikin.Sketch-Cache-Cleaner";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Sketch Cache Cleaner/Utils/Sketch Cache Cleaner-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
