@@ -15,6 +15,7 @@
 		CE25F7ED1E49145A0049CF23 /* clear_cache.sh in Resources */ = {isa = PBXBuildFile; fileRef = CE25F7EC1E49145A0049CF23 /* clear_cache.sh */; };
 		CE25F7F21E4915190049CF23 /* STPrivilegedTask.m in Sources */ = {isa = PBXBuildFile; fileRef = CE25F7F01E4915190049CF23 /* STPrivilegedTask.m */; };
 		CE25F7F41E491BE30049CF23 /* stop_cache.sh in Resources */ = {isa = PBXBuildFile; fileRef = CE25F7F31E491BE30049CF23 /* stop_cache.sh */; };
+		CE91327C1EA50C55007F1ADD /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE91327B1EA50C55007F1ADD /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		CE25F7F01E4915190049CF23 /* STPrivilegedTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STPrivilegedTask.m; sourceTree = "<group>"; };
 		CE25F7F11E4915190049CF23 /* STPrivilegedTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STPrivilegedTask.h; sourceTree = "<group>"; };
 		CE25F7F31E491BE30049CF23 /* stop_cache.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = stop_cache.sh; sourceTree = "<group>"; };
+		CE91327B1EA50C55007F1ADD /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 			children = (
 				CE25F7DA1E490FA00049CF23 /* Assets.xcassets */,
 				CE25F7E51E490FBA0049CF23 /* Controllers */,
+				CE91327A1EA50C1A007F1ADD /* Extensions */,
 				CE25F7E91E4913EE0049CF23 /* Scripts */,
 				CE25F7E61E490FCA0049CF23 /* Storybords & Xibs */,
 				CE25F7EE1E4914930049CF23 /* Supporting Files */,
@@ -123,6 +126,14 @@
 				CE25F7D61E490FA00049CF23 /* AppDelegate.swift */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CE91327A1EA50C1A007F1ADD /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CE91327B1EA50C55007F1ADD /* Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,6 +215,7 @@
 				CE25F7D91E490FA00049CF23 /* ViewController.swift in Sources */,
 				CE25F7D71E490FA00049CF23 /* AppDelegate.swift in Sources */,
 				CE25F7F21E4915190049CF23 /* STPrivilegedTask.m in Sources */,
+				CE91327C1EA50C55007F1ADD /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,6 +378,7 @@
 				CE25F7E41E490FA00049CF23 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
