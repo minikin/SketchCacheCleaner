@@ -7,6 +7,6 @@
 #  Copyright © 2017 Sasha Prokhorenko. All rights reserved.
 #  defaults write -app ‘sketch’ ApplePersistence -bool no
 
-#rm -rf /.DocumentRevisions-V100
+rm -rf /.DocumentRevisions-V100
 
-#exit 5
+exit 5

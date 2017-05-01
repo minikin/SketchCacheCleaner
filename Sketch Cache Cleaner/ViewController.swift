@@ -24,6 +24,7 @@ class ViewController: NSViewController {
   let privilegedTask = STPrivilegedTask()
   let bashPath = "/bin/sh"
   let calculateCacheSizeTask = ["calculate_cache_size.sh"]
+  let clearCacheTask = ["clear_cache.sh"]
   
   // MARK: - ViewController lifecycle
   override func viewDidLoad() {
@@ -55,28 +56,30 @@ class ViewController: NSViewController {
   }
   
   func askPermission() {
-    privilegedTask.launchPath = bashPath
-    privilegedTask.arguments = calculateCacheSizeTask
-    privilegedTask.currentDirectoryPath = Bundle.main.resourcePath
-    let err = privilegedTask.launch()
-    if err != errAuthorizationSuccess {
-      if (err == errAuthorizationCanceled) {
-        print("User cancelled", permissionGranted)
-        permissionGranted = false
-        return
-      } else {
-        print("Something went wrong:", err)
-        // For error codes, see http://www.opensource.apple.com/source/libsecurity_authorization/libsecurity_authorization-36329/lib/Authorization.h
-      }
-    }
     
-    privilegedTask.waitUntilExit()
-    permissionGranted = true
-    backgroundImage.isHidden = false
-    button.title = "How big is my Sketch cache?"
-    imageHeight.constant = 180
-    imageWidth.constant = 155
-    mainImage.cell?.image = #imageLiteral(resourceName: "cube")
+      privilegedTask.launchPath = bashPath
+      privilegedTask.arguments = calculateCacheSizeTask
+      privilegedTask.currentDirectoryPath = Bundle.main.resourcePath
+      
+      let err = privilegedTask.launch()
+      if err != errAuthorizationSuccess {
+        if (err == errAuthorizationCanceled) {
+          print("User cancelled", permissionGranted)
+          permissionGranted = false
+          return
+        } else {
+          print("Something went wrong:", err)
+          // For error codes, see http://www.opensource.apple.com/source/libsecurity_authorization/libsecurity_authorization-36329/lib/Authorization.h
+        }
+      }
+      
+      privilegedTask.waitUntilExit()
+      permissionGranted = true
+      backgroundImage.isHidden = false
+      button.title = "How big is my Sketch cache?"
+      imageHeight.constant = 180
+      imageWidth.constant = 155
+      mainImage.cell?.image = #imageLiteral(resourceName: "cube")
   }
   
   func checkSizeOfCache() {
@@ -94,12 +97,11 @@ class ViewController: NSViewController {
   }
   
   func clearCache() {
-    let task = Process()
-    task.launchPath = "/usr/bin/env"
-    task.arguments = ["rm -rf /.DocumentRevisions-V100"]
-    let pipe = Pipe()
-    task.standardOutput = pipe
-    task.launch()
+    privilegedTask.launchPath = bashPath
+    privilegedTask.arguments = clearCacheTask
+    privilegedTask.currentDirectoryPath = Bundle.main.resourcePath
+    privilegedTask.launch()
+    privilegedTask.waitUntilExit()
     finalUIState()
   }
   
@@ -110,7 +112,6 @@ class ViewController: NSViewController {
     button.isHidden = true
     cacheCleared.isHidden = false
   }
-  
   
   // MARK: - Actions
   @IBAction func buttonPressed(_ sender: NSButton) {
