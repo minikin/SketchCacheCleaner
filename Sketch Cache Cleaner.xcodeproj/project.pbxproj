@@ -16,6 +16,7 @@
 		CE25F7F21E4915190049CF23 /* STPrivilegedTask.m in Sources */ = {isa = PBXBuildFile; fileRef = CE25F7F01E4915190049CF23 /* STPrivilegedTask.m */; };
 		CE25F7F41E491BE30049CF23 /* stop_cache.sh in Resources */ = {isa = PBXBuildFile; fileRef = CE25F7F31E491BE30049CF23 /* stop_cache.sh */; };
 		CE91327C1EA50C55007F1ADD /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE91327B1EA50C55007F1ADD /* Extensions.swift */; };
+		CEA190B11F02FE3B00C9F30A /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA190B01F02FE3B00C9F30A /* Environment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		CE25F7F11E4915190049CF23 /* STPrivilegedTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STPrivilegedTask.h; sourceTree = "<group>"; };
 		CE25F7F31E491BE30049CF23 /* stop_cache.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = stop_cache.sh; sourceTree = "<group>"; };
 		CE91327B1EA50C55007F1ADD /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		CEA190B01F02FE3B00C9F30A /* Environment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,9 +97,10 @@
 		CE25F7E71E490FDB0049CF23 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				CE25F7F01E4915190049CF23 /* STPrivilegedTask.m */,
-				CE25F7F11E4915190049CF23 /* STPrivilegedTask.h */,
+				CEA190B01F02FE3B00C9F30A /* Environment.swift */,
 				CE25F7EF1E4915190049CF23 /* Sketch Cache Cleaner-Bridging-Header.h */,
+				CE25F7F11E4915190049CF23 /* STPrivilegedTask.h */,
+				CE25F7F01E4915190049CF23 /* STPrivilegedTask.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE25F7D91E490FA00049CF23 /* ViewController.swift in Sources */,
+				CEA190B11F02FE3B00C9F30A /* Environment.swift in Sources */,
 				CE25F7D71E490FA00049CF23 /* AppDelegate.swift in Sources */,
 				CE25F7F21E4915190049CF23 /* STPrivilegedTask.m in Sources */,
 				CE91327C1EA50C55007F1ADD /* Extensions.swift in Sources */,

@@ -18,13 +18,12 @@ class ViewController: NSViewController {
   @IBOutlet weak var imageHeight: NSLayoutConstraint!
   @IBOutlet weak var backgroundImage: NSImageView!
   @IBOutlet weak var cacheCleared: NSImageView!
-  
-  var permissionGranted = false
-  var stringToTest = ""
-  let privilegedTask = STPrivilegedTask()
-  let bashPath = "/bin/sh"
-  let calculateCacheSizeTask = ["calculate_cache_size.sh"]
-  let clearCacheTask = ["clear_cache.sh"]
+  private var permissionGranted = false
+  private var stringToTest = ""
+  private let privilegedTask = STPrivilegedTask()
+  private let bashPath = Environment.bashPath
+  private let calculateCacheSizeTask = [Environment.calculateCacheScriptPath]
+  private let clearCacheTask = [Environment.clearCacheScriptPath]
   
   // MARK: - ViewController lifecycle
   override func viewDidLoad() {
@@ -39,14 +38,15 @@ class ViewController: NSViewController {
     view.window?.backgroundColor = NSColor(red:0.07, green:0.04, blue:0.20, alpha:1.00)
     view.window?.title = "Sketch Cache Cleanerd"
     backgroundView.backgroundColor = NSColor(red:0.07, green:0.04, blue:0.20, alpha:1.00)
+    setButton(button, title: "Enable and Scan")
   }
   
   func appState() {
     switch (permissionGranted, button.title) {
-    case (false, "Allow"):
-      button.title = "Allow"
+    case (false, "Enable and Scan"):
+      button.title = "Enable and Scan"
       askPermission()
-    case (true, "How big is my Sketch cache?"):
+    case (true, "Scanning..."):
       checkSizeOfCache()
     case (true, stringToTest):
       clearCache()
@@ -56,7 +56,6 @@ class ViewController: NSViewController {
   }
   
   func askPermission() {
-    
       privilegedTask.launchPath = bashPath
       privilegedTask.arguments = calculateCacheSizeTask
       privilegedTask.currentDirectoryPath = Bundle.main.resourcePath
@@ -76,10 +75,17 @@ class ViewController: NSViewController {
       privilegedTask.waitUntilExit()
       permissionGranted = true
       backgroundImage.isHidden = false
-      button.title = "How big is my Sketch cache?"
-      imageHeight.constant = 180
-      imageWidth.constant = 155
-      mainImage.cell?.image = #imageLiteral(resourceName: "cube")
+      //button.title = "Scanning..."
+      setButton(button, title: "Scanning...")
+    
+    //      imageHeight.constant = 180
+    //      imageWidth.constant = 155
+      mainImage.cell?.image = #imageLiteral(resourceName: "closedBox")
+      //button.isEnabled = false
+      DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3) ) {
+        //self.button.isEnabled = true
+        self.checkSizeOfCache()
+      }
   }
   
   func checkSizeOfCache() {
@@ -92,7 +98,9 @@ class ViewController: NSViewController {
       finalUIState()
     } else {
       stringToTest = "Clear \(stringToDispaly)"
-      button.title = "Clear \(stringToDispaly)"
+      //button.title = "Clear \(stringToDispaly)"
+      setButton(button, title: "Clear \(stringToDispaly)")
+      mainImage.cell?.image = #imageLiteral(resourceName: "boxWithSketch")
     }
   }
   
@@ -106,8 +114,8 @@ class ViewController: NSViewController {
   }
   
   func finalUIState(){
-    imageHeight.constant = 200
-    imageWidth.constant = 232
+//    imageHeight.constant = 200
+//    imageWidth.constant = 232
     mainImage.cell?.image = #imageLiteral(resourceName: "openBox")
     button.isHidden = true
     cacheCleared.isHidden = false
@@ -118,5 +126,28 @@ class ViewController: NSViewController {
     appState()
   }
   
-}
+  
+  func setButton(_ button: NSButton, title: String) {
 
+    button.title = title
+    button.cornerRadius = 3.0
+    button.backgroundColor = NSColor(red:1.0, green:0.70, blue:0.0, alpha:1.00)
+    let textColor =  NSColor(red:1.0, green:1.0, blue:1.0, alpha:1.00)
+    
+    let style = NSMutableParagraphStyle()
+    style.alignment = .center
+    
+    guard let font = NSFont(name: "San Francisco Display Semibold", size: 14) else {
+      return
+    }
+    
+    let attributes = [NSForegroundColorAttributeName: textColor,
+                      NSFontAttributeName: font,
+                      NSParagraphStyleAttributeName: style] as [String : Any]
+    
+    button.attributedTitle = NSAttributedString(string: title, attributes: attributes)
+  }
+  
+  
+  
+}
