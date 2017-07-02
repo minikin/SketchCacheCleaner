@@ -18,6 +18,7 @@ class ViewController: NSViewController {
   @IBOutlet weak var cacheCleared: NSImageView!
   @IBOutlet weak var notificationLabel: NSTextField!
   @IBOutlet weak var sketchLabel: NSTextField!
+  @IBOutlet weak var progress: NSProgressIndicator!
   private var permissionGranted = false
   private var stringToTest = ""
   private let privilegedTask = STPrivilegedTask()
@@ -31,13 +32,13 @@ class ViewController: NSViewController {
     backgroundImage.isHidden = true
     cacheCleared.isHidden = true
     notificationLabel.isHidden = true
-    
   }
   override func viewWillAppear() {
     super.viewWillAppear()
     view.window?.titlebarAppearsTransparent = true
     view.window?.backgroundColor = NSColor(red:0.07, green:0.04, blue:0.20, alpha:1.00)
-    view.window?.contentView?.setFrameSize(CGSize(width: (view.window?.contentView?.frame.width)!, height: (view.window?.contentView?.frame.height)! + 20))
+    view.window?.contentView?.setFrameSize(CGSize(width: (view.window?.contentView?.frame.width)!,
+                                                  height: (view.window?.contentView?.frame.height)! + 20))
     setButton(button, title: "Enable and Scan")
   }
   
@@ -75,9 +76,10 @@ class ViewController: NSViewController {
       privilegedTask.waitUntilExit()
       permissionGranted = true
       backgroundImage.isHidden = false
+      progress.startAnimation(self)
+      button.isEnabled = false
       setButton(button, title: "Scanning...")
       mainImage.cell?.image = #imageLiteral(resourceName: "closedBox")
-      button.isEnabled = false
       DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2) ) {
         self.button.isEnabled = true
         self.checkSizeOfCache()
@@ -85,6 +87,7 @@ class ViewController: NSViewController {
   }
   
   func checkSizeOfCache() {
+    progress.stopAnimation(self)
     let readHandle = privilegedTask.outputFileHandle
     let outputData = readHandle?.readDataToEndOfFile()
     let outputString = String(data: outputData!, encoding: .utf8)
@@ -94,7 +97,6 @@ class ViewController: NSViewController {
       finalUIState()
     } else {
       stringToTest = "Clear \(stringToDispaly.trim())B"
-      //button.title = "Clear \(stringToDispaly)"
       setButton(button, title: "Clear \(stringToDispaly.trim())B")
       mainImage.cell?.image = #imageLiteral(resourceName: "boxWithSketch")
       notificationLabel.isHidden = false

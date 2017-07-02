@@ -10,6 +10,7 @@
 		035AF2A11F0585FB003CD85B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035AF2A01F0585FB003CD85B /* ViewController.swift */; };
 		038FCAE91F058A2100755E96 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 038FCAE81F058A2100755E96 /* Main.storyboard */; };
 		CE109E5D1F05A01400C4BF25 /* SanFranciscoDisplay-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CE109E5C1F05A01400C4BF25 /* SanFranciscoDisplay-Semibold.otf */; };
+		CE23AC721F093826008278B0 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE23AC711F093826008278B0 /* Theme.swift */; };
 		CE25F7D71E490FA00049CF23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE25F7D61E490FA00049CF23 /* AppDelegate.swift */; };
 		CE25F7DB1E490FA00049CF23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE25F7DA1E490FA00049CF23 /* Assets.xcassets */; };
 		CE25F7EB1E4914340049CF23 /* calculate_cache_size.sh in Resources */ = {isa = PBXBuildFile; fileRef = CE25F7EA1E4914340049CF23 /* calculate_cache_size.sh */; };
@@ -24,6 +25,7 @@
 		035AF2A01F0585FB003CD85B /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = "Sketch Cache Cleaner/ViewController.swift"; sourceTree = SOURCE_ROOT; };
 		038FCAE81F058A2100755E96 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		CE109E5C1F05A01400C4BF25 /* SanFranciscoDisplay-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SanFranciscoDisplay-Semibold.otf"; sourceTree = "<group>"; };
+		CE23AC711F093826008278B0 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		CE25F7D31E490FA00049CF23 /* Sketch Cache Cleaner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sketch Cache Cleaner.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE25F7D61E490FA00049CF23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE25F7DA1E490FA00049CF23 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -83,7 +85,6 @@
 				038FCAEA1F058A5800755E96 /* Storyboards & Xibs */,
 				CE25F7EE1E4914930049CF23 /* Supporting Files */,
 				CE25F7E71E490FDB0049CF23 /* Utils */,
-				CE25F7E81E490FE90049CF23 /* Views */,
 			);
 			path = "Sketch Cache Cleaner";
 			sourceTree = "<group>";
@@ -99,19 +100,13 @@
 		CE25F7E71E490FDB0049CF23 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				CEA190B01F02FE3B00C9F30A /* Environment.swift */,
 				CE25F7EF1E4915190049CF23 /* Sketch Cache Cleaner-Bridging-Header.h */,
 				CE25F7F11E4915190049CF23 /* STPrivilegedTask.h */,
 				CE25F7F01E4915190049CF23 /* STPrivilegedTask.m */,
+				CEA190B01F02FE3B00C9F30A /* Environment.swift */,
+				CE23AC711F093826008278B0 /* Theme.swift */,
 			);
 			path = Utils;
-			sourceTree = "<group>";
-		};
-		CE25F7E81E490FE90049CF23 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		CE25F7E91E4913EE0049CF23 /* Scripts */ = {
@@ -224,6 +219,7 @@
 				CE25F7D71E490FA00049CF23 /* AppDelegate.swift in Sources */,
 				CE25F7F21E4915190049CF23 /* STPrivilegedTask.m in Sources */,
 				CE91327C1EA50C55007F1ADD /* Extensions.swift in Sources */,
+				CE23AC721F093826008278B0 /* Theme.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,7 +325,7 @@
 				DEVELOPMENT_TEAM = GW82A8W73Z;
 				INFOPLIST_FILE = "Sketch Cache Cleaner/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_BUNDLE_IDENTIFIER = "me.minikin.Sketch-Cache-Cleaner";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Sketch Cache Cleaner/Utils/Sketch Cache Cleaner-Bridging-Header.h";
@@ -347,7 +343,7 @@
 				DEVELOPMENT_TEAM = GW82A8W73Z;
 				INFOPLIST_FILE = "Sketch Cache Cleaner/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_BUNDLE_IDENTIFIER = "me.minikin.Sketch-Cache-Cleaner";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Sketch Cache Cleaner/Utils/Sketch Cache Cleaner-Bridging-Header.h";
