@@ -80,7 +80,7 @@ class ViewController: NSViewController {
       button.isEnabled = false
       setButton(button, title: "Scanning...")
       mainImage.cell?.image = #imageLiteral(resourceName: "closedBox")
-      DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2) ) {
+      DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1) ) {
         self.button.isEnabled = true
         self.checkSizeOfCache()
       }
